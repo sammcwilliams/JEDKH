@@ -6,6 +6,7 @@ assert 0 < len(input_string) < 1000, "Don't take the piss"
 baselines = [[74, 69, 84, 32, 70, 85, 69, 76, 32, 67, 65, 78, 39, 84, 32, 77, 69, 76, 84, 32, 83, 84, 69, 69, 76, 32, 66, 69, 65, 77, 83, 46],
              [74,69,70,70,82,69,89,32,69,80,83,84,69,73,78,32,68,73,68,78,39,84,32,75,73,76,76,32,72,73,77,83,69,76,70,46]]
 baseline = random.choice(baselines)
+baseline = "".join([chr(i) for i in baseline])
 mask = np.zeros(shape=(len(baseline),))
 possible = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'. "
 
@@ -40,7 +41,7 @@ while not done:
         count+=1
         
     print(input_string)
-    time.sleep(0.02)
+    time.sleep(0.005)
     
     if np.all(mask) and len(mask)==len(input_string):
         done = True
